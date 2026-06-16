@@ -1,6 +1,5 @@
-import OrangeMan from "@/assets/images/orange-man-transparent.webp";
 import HeroBg from "@/assets/images/hero-bg.png";
-import Image from "next/image";
+import HeroMedia from "./VideoHero";
 
 const Hero = () => {
   return (
@@ -9,12 +8,12 @@ const Hero = () => {
         backgroundImage: `url(${HeroBg.src})`,
       }}
       id="hero"
-      className="h-screen  flex flex-col sm:flex-row items-center justify-center bg-[#e59832] px-10 "
+      className="h-screen flex flex-col sm:flex-row items-center justify-center bg-[#e59832] px-10"
     >
-      <div className="overflow-hidden h-full flex items-center justify-center max-w-[800px] relative  ">
+      <div className="overflow-hidden h-full flex items-center justify-center max-w-[800px] relative">
         <svg
           viewBox="0 0 200 200"
-          className="absolute z-1 w-[520px] h-[520px] top-1/2 -translate-y-1/2 left-0   blob"
+          className="absolute z-1 w-[520px] h-[520px] top-1/2 -translate-y-1/2 left-0 blob"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -25,7 +24,7 @@ const Hero = () => {
         </svg>
         <div className="relative z-10 pl-30 mt-40">
           <h1
-            className="space-grotesk-font text-[150px]/30  mb-10 font-extrabold"
+            className="space-grotesk-font text-[150px]/30 mb-10 font-extrabold"
             style={{
               WebkitTextStroke: "2px #f5d6ad",
             }}
@@ -37,23 +36,8 @@ const Hero = () => {
           </p>
         </div>
       </div>
-      {/* <div className="w-[564px] h-[443px] relative mt-auto">
-        <div className="absolute bottom-0 ">
-          <Image src={OrangeMan} alt="Orange Man" />
-        </div>
-      </div> */}
-      <div className="w-[564px] h-[443px] relative mt-auto">
-        <div className="absolute bottom-0 w-full h-full">
-          <video
-            src="/cool-video.mp4" // Pointing directly to the public folder
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-contain object-bottom"
-          />
-        </div>
-      </div>
+
+      <HeroMedia />
     </section>
   );
 };
