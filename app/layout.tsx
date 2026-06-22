@@ -35,13 +35,6 @@ export const metadata: Metadata = {
     description: "Portfolio of Binyam, a Frontend Web Developer.",
     url: "https://binii.dev",
     siteName: "Binyam Portfolio",
-    images: [
-      {
-        url: "/og-image.png", // screenshot of site in the public folder
-        width: 1200,
-        height: 630,
-      },
-    ],
     locale: "en_US",
     type: "website",
   },
