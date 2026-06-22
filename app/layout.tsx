@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     siteName: "Binyam Portfolio",
     images: [
       {
-        url: "/og-image.jpg", // screenshot of site in the public folder
+        url: "/og-image.png", // screenshot of site in the public folder
         width: 1200,
         height: 630,
       },
