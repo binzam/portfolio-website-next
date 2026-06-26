@@ -26,21 +26,21 @@ const Hero = () => {
           </svg>
         </div>
 
-        <div className="relative z-10 text-center md:text-left flex flex-col items-center md:items-start">
+        <div className="relative z-10 text-center md:text-left flex flex-col gap-6 sm:gap-2 items-center md:items-start">
           <h1
-            className="space-grotesk-font text-[50px] sm:text-[60px] md:text-[80px] lg:text-[100px] xl:text-[120px] leading-[1.1] mb-2 sm:mb-6 font-extrabold"
+            className="space-grotesk-font text-[60px] md:text-[80px] lg:text-[100px] xl:text-[120px] leading-[1.1] mb-2 sm:mb-6 font-extrabold"
             style={{
               WebkitTextStroke: "0.5px #f5d6ad",
             }}
           >
-            Hi, I&apos;m Binyam
+            Hi, I&apos;m <br /> Binyam
           </h1>
           <p className="bebas-neue-regular text-[22px] sm:text-[28px] md:text-[35px] tracking-widest text-black">
             a web developer.
           </p>
         </div>
       </div>
-      <div className="w-full max-w-[400px] md:max-w-[480px] lg:max-w-[564px] h-[45vh] md:h-[80vh] lg:h-[85vh] relative mt-auto md:absolute md:bottom-0 md:right-[2%] lg:right-[5%] z-20 shrink-0">
+      <div className="w-full max-w-[380px] md:max-w-[480px] lg:max-w-[564px] h-[45vh] md:h-[80vh] lg:h-[85vh] relative mt-auto md:absolute md:bottom-0 md:right-[2%] lg:right-[5%] z-20 shrink-0">
         <Image
           src={OrangeMan}
           alt="Binyam"
