@@ -1,17 +1,34 @@
 import HeroBg from "@/assets/images/hero-bg.png";
-import Image from "next/image";
+import HeroBgSmall from "@/assets/images/small-hero-bg.png";
+import Image, { getImageProps } from "next/image";
 import OrangeMan from "@/assets/images/orange-man-transparent.webp";
 
 const Hero = () => {
+  const commonProps = { alt: "Hero Background", fill: true, priority: true };
+  const { props: desktopProps } = getImageProps({
+    ...commonProps,
+    src: HeroBg,
+  });
+  const { props: mobileProps } = getImageProps({
+    ...commonProps,
+    src: HeroBgSmall,
+  });
   return (
     <section
-      style={{
-        backgroundImage: `url(${HeroBg.src})`,
-      }}
       id="hero"
-      className="relative h-svh max-h-[1200px] w-full flex flex-col md:flex-row items-center justify-between bg-[#e59832] overflow-hidden pt-30  sm:pt-16 md:pt-0"
+      className="relative h-svh max-h-[1200px] w-full flex flex-col md:flex-row items-center justify-between bg-[#e59832] overflow-hidden pt-30 sm:pt-16 md:pt-0"
     >
-      <div className="flex-1 flex flex-col items-center md:items-start justify-center w-full max-w-[1200px] mx-auto relative px-0 sm:px-12 md:pl-20 z-10">
+      <picture className="absolute inset-0 z-0 pointer-events-none">
+        <source media="(min-width: 768px)" srcSet={desktopProps.srcSet} />
+        <img
+          {...mobileProps}
+          className="object-cover w-full h-full"
+          style={{ width: "100%", height: "100%" }}
+          alt="orage patterned background"
+        />
+      </picture>
+
+      <div className="relative z-10 flex-1 flex flex-col items-center md:items-start justify-center w-full max-w-[1200px] mx-auto px-0 sm:px-12 md:pl-20">
         <div className="absolute z-0 size-[350px] md:size-[450px] top-1/2 left-1/2 md:left-[20%] lg:left-[25%] -translate-x-1/2 -translate-y-1/2 pointer-events-none">
           <svg
             viewBox="0 0 200 200"
@@ -29,9 +46,7 @@ const Hero = () => {
         <div className="relative z-10 text-center md:text-left flex flex-col gap-6 sm:gap-2 items-center md:items-start">
           <h1
             className="space-grotesk-font text-[60px] md:text-[80px] lg:text-[100px] xl:text-[120px] leading-[1.1] mb-2 sm:mb-6 font-extrabold"
-            style={{
-              WebkitTextStroke: "0.5px #f5d6ad",
-            }}
+            style={{ WebkitTextStroke: "0.5px #f5d6ad" }}
           >
             Hi, I&apos;m <br /> Binyam
           </h1>
@@ -40,14 +55,15 @@ const Hero = () => {
           </p>
         </div>
       </div>
-      <div className="w-full max-w-[380px] md:max-w-[480px] lg:max-w-[564px] h-[45vh] md:h-[80vh] lg:h-[85vh] relative mt-auto md:absolute md:bottom-0 md:right-[2%] lg:right-[5%] z-20 shrink-0">
+
+      <div className="w-full shadow-filter max-w-[380px] md:max-w-[480px] lg:max-w-[564px] h-[300px] sm:h-[443px] relative mt-auto md:absolute md:bottom-0 md:right-[2%] lg:right-[5%] z-20 shrink-0">
         <Image
           src={OrangeMan}
           alt="Binyam"
           priority
           fill
           sizes="(max-width: 768px) 100vw, 564px"
-          className="object-contain object-bottom transition-opacity duration-700 ease-in-out"
+          className="object-cover object-top"
         />
       </div>
     </section>

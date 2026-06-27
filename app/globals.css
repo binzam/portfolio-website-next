@@ -111,7 +111,7 @@ body {
     transform: translateY(0px) scale(1.2);
   }
   50% {
-    transform: translateY(-10px) scale(1.8); 
+    transform: translateY(-10px) scale(1.8);
   }
   100% {
     transform: translateY(0px) scale(1.2);
@@ -125,4 +125,8 @@ body {
 
 .about-rect.animate {
   transform: scaleX(1);
+}
+
+.shadow-filter {
+  filter: drop-shadow(8px 8px 0 #b85c0094) drop-shadow(16px 16px 0 #8c44008f);
 }
