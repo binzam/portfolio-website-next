@@ -1,4 +1,5 @@
 const Contact = () => {
+  
   return (
     <section
       id="contact-me"
@@ -7,7 +8,6 @@ const Contact = () => {
       <h1 className="space-grotesk-font text-[42px] sm:text-[60px] md:text-[87px] leading-[1.1] font-extrabold mt-auto md:mt-0">
         Contact Me
       </h1>
-
       <div className="flex items-center justify-center gap-6 sm:gap-8 md:gap-12 flex-wrap max-w-4xl w-full">
         <div className="flex justify-center items-center">
           <svg
@@ -23,6 +23,7 @@ const Contact = () => {
           </svg>
         </div>
         <div className="flex justify-center items-center">
+          
           <svg
             className="size-10 sm:size-16 md:size-20"
             viewBox="0 0 360 362"

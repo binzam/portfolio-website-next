@@ -44,7 +44,7 @@ export interface Project {
   imageLarge: StaticImageData | string;
   imageSmall: StaticImageData | string;
   technologies: (StaticImageData | string)[];
-  liveLink: string;
+  liveLink: string | null;
 }
 
 const LANDING_PAGES: Project[] = [
@@ -55,7 +55,8 @@ const LANDING_PAGES: Project[] = [
     imageLarge: Manage,
     imageSmall: ManageSmall,
     technologies: [HtmlIcon, CssIcon, JsIcon],
-    liveLink: "#",
+    // liveLink: "https://mange-landing-page-frontend-mentor.netlify.app/",
+    liveLink: null,
   },
   {
     title: "Bookmark",
@@ -64,7 +65,7 @@ const LANDING_PAGES: Project[] = [
     imageLarge: Bookmark,
     imageSmall: BookmarkSmall,
     technologies: [HtmlIcon, CssIcon, JsIcon],
-    liveLink: "#",
+    liveLink: "https://bookmark.binii.dev/",
   },
   {
     title: "EasyBank",
@@ -73,7 +74,8 @@ const LANDING_PAGES: Project[] = [
     imageLarge: EasyBank,
     imageSmall: EasyBankSmall,
     technologies: [HtmlIcon, CssIcon, JsIcon],
-    liveLink: "#",
+    // liveLink: "https://easybank-landing-page-deploy.netlify.app/",
+    liveLink: null,
   },
 ];
 
@@ -85,7 +87,7 @@ const CONTENT_PLATFORMS: Project[] = [
     imageLarge: JobSphere,
     imageSmall: JobSphereSmall,
     technologies: [ReactIcon, TsIcon, CssIcon],
-    liveLink: "#",
+    liveLink: "https://find-jobs-at-jobsphere.netlify.app/",
   },
   {
     title: "JACKED NEWS",
@@ -94,7 +96,7 @@ const CONTENT_PLATFORMS: Project[] = [
     imageLarge: Jacked,
     imageSmall: JackedSmall,
     technologies: [ReactIcon, TsIcon, CssIcon],
-    liveLink: "#",
+    liveLink: "https://jacked-news.netlify.app/",
   },
 ];
 
@@ -113,7 +115,7 @@ const AI_TOOLS: Project[] = [
       ExpressIcon,
       MongoIcon,
     ],
-    liveLink: "#",
+    liveLink: "https://skill-pilot.netlify.app/",
   },
   {
     title: "VidSummary",
@@ -129,7 +131,7 @@ const AI_TOOLS: Project[] = [
       ExpressIcon,
       MongoIcon,
     ],
-    liveLink: "#",
+    liveLink: "https://vidsum.netlify.app/",
   },
 ];
 
@@ -148,7 +150,7 @@ const ECOMMERCE: Project[] = [
       ExpressIcon,
       MongoIcon,
     ],
-    liveLink: "#",
+    liveLink: "https://www.sisayacademy.com/",
   },
   {
     title: "DreamNest",
@@ -164,7 +166,7 @@ const ECOMMERCE: Project[] = [
       ExpressIcon,
       MongoIcon,
     ],
-    liveLink: "#",
+    liveLink: null,
   },
   {
     title: "Showpify",
@@ -173,20 +175,21 @@ const ECOMMERCE: Project[] = [
     imageLarge: Showpify,
     imageSmall: ShowpifySmall,
     technologies: [NextIcon, TsIcon, TailwindIcon],
-    liveLink: "#",
+    liveLink: "https://showpify.vercel.app/",
   },
 ];
 
 const EXTENSIONS: Project[] = [
   {
     title: "Color Store",
-    badge: "200+ Installs",
+    badge: "300+ Installs",
     description:
       "A VS Code extenstion that helps developers save, organize, and reuse custom colors across projects. It supports multiple formats like HEX, RGB, HSL and gives options to use them as Tailwind CSS and/or as plain CSS styles, all within a sleek, responsive sidebar.",
     imageLarge: ColorStore,
     imageSmall: ColorStoreSmall,
     technologies: [HtmlIcon, CssIcon, TsIcon],
-    liveLink: "#",
+    liveLink:
+      "https://marketplace.visualstudio.com/items?itemName=binyam.color-store",
   },
 ];
 const TABS = [
@@ -215,33 +218,33 @@ const Portfolio = () => {
   return (
     <section
       id="portfolio"
-      className="relative  bg-[#131132] pt-35 pb-50 flex items-center justify-center flex-col min-h-screen max-h-250"
+      className="relative bg-[#131132] py-16 sm:py-24 md:py-35 flex items-center justify-center flex-col min-h-screen overflow-hidden"
     >
-      {/* <div className="umbrella-wrapper">
-        <div className="umbrella-top" />
-      </div> */}
-      <h1 className="text-5xl text-center text-[#e8dfd1] bebas-neue-regular mb-5">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl text-center text-[#e8dfd1] bebas-neue-regular mb-6 px-4">
         Some of my Works
       </h1>
 
-      <div className="flex justify-center gap-8 mb-10">
-        {TABS.map((tab) => (
-          <button
-            key={tab}
-            onClick={() => setActiveTab(tab)}
-            className="relative rounded-full px-3 py-1.5 text-lg font-medium text-white transition"
-          >
-            {activeTab === tab && (
-              <motion.span
-                layoutId="bubble"
-                className="absolute inset-0 bg-[#e59832] rounded-full"
-                transition={{ type: "spring", bounce: 0.3 }}
-              />
-            )}
-            <span className="relative z-10 text-white">{tab}</span>
-          </button>
-        ))}
+      <div className="w-full max-w-[100vw] px-4 mb-10 overflow-x-auto no-scrollbar flex justify-start md:justify-center">
+        <div className="flex gap-2 sm:gap-4 mx-auto pb-2 shrink-0">
+          {TABS.map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className="relative rounded-full px-3.5 py-1.5 text-sm sm:text-base md:text-lg font-medium text-white transition whitespace-nowrap shrink-0"
+            >
+              {activeTab === tab && (
+                <motion.span
+                  layoutId="bubble"
+                  className="absolute inset-0 bg-[#e59832] rounded-full"
+                  transition={{ type: "spring", bounce: 0.3 }}
+                />
+              )}
+              <span className="relative z-10 text-white">{tab}</span>
+            </button>
+          ))}
+        </div>
       </div>
+
       <LayoutGroup>
         <AnimatePresence mode="wait">
           <motion.div
@@ -258,7 +261,7 @@ const Portfolio = () => {
               activeTab === "Content Platforms" || activeTab === "AI Tools"
                 ? "max-w-[1000px]"
                 : "max-w-[1600px]"
-            } px-10 mx-auto grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4 justify-center h-full items-start mb-5`}
+            } w-full px-4 sm:px-6 md:px-10 mx-auto grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6 justify-center h-full items-start mb-5`}
           >
             {DATA[activeTab].map((project) => (
               <ProjectCard key={project.title} project={project} />
