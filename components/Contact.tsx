@@ -1,5 +1,4 @@
 const Contact = () => {
-  
   return (
     <section
       id="contact-me"
@@ -9,7 +8,11 @@ const Contact = () => {
         Contact Me
       </h1>
       <div className="flex items-center justify-center gap-6 sm:gap-8 md:gap-12 flex-wrap max-w-4xl w-full">
-        <div className="flex justify-center items-center">
+        <a
+          href="mailto:btechan@gmail.com"
+          className="flex justify-center items-center hover:scale-110 transition-transform duration-200"
+          aria-label="Send an email"
+        >
           <svg
             stroke="currentColor"
             fill="currentColor"
@@ -21,9 +24,15 @@ const Contact = () => {
           >
             <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"></path>
           </svg>
-        </div>
-        <div className="flex justify-center items-center">
-          
+        </a>
+
+        <a
+          href="https://wa.me/251925268426"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex justify-center items-center hover:scale-110 transition-transform duration-200"
+          aria-label="Contact on WhatsApp"
+        >
           <svg
             className="size-10 sm:size-16 md:size-20"
             viewBox="0 0 360 362"
@@ -37,8 +46,15 @@ const Contact = () => {
               fill="currentColor"
             ></path>
           </svg>
-        </div>
-        <div className="flex justify-center items-center">
+        </a>
+
+        <a
+          href="https://x.com/binyam_tgt"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex justify-center items-center hover:scale-110 transition-transform duration-200"
+          aria-label="Visit my X profile"
+        >
           <svg
             stroke="currentColor"
             fill="currentColor"
@@ -49,8 +65,15 @@ const Contact = () => {
           >
             <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path>
           </svg>
-        </div>
-        <div className="flex justify-center items-center">
+        </a>
+
+        <a
+          href="https://t.me/bi_nyam"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex justify-center items-center hover:scale-110 transition-transform duration-200"
+          aria-label="Contact on Telegram"
+        >
           <svg
             stroke="currentColor"
             fill="currentColor"
@@ -61,8 +84,15 @@ const Contact = () => {
           >
             <path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9l-40.7 191.8c-3 13.6-11.1 16.9-22.4 10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 6.1-12.5 6.1l4.4-63.1 114.9-103.8c5-4.4-1.1-6.9-7.7-2.5l-142 89.4-61.2-19.1c-13.3-4.2-13.6-13.3 2.8-19.7l239.1-92.2c11.1-4 20.8 2.7 17.2 19.5z"></path>
           </svg>
-        </div>
-        <div className="flex justify-center items-center">
+        </a>
+
+        <a
+          href="https://linkedin.com/in/binyam-techan-280017279"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex justify-center items-center hover:scale-110 transition-transform duration-200"
+          aria-label="Visit my LinkedIn profile"
+        >
           <svg
             stroke="currentColor"
             fill="currentColor"
@@ -73,7 +103,7 @@ const Contact = () => {
           >
             <path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path>
           </svg>
-        </div>
+        </a>
       </div>
 
       <p className="text-[16px] sm:text-[20px] md:text-[25px] tracking-widest text-balance font-medium mt-auto md:mt-0 px-4">
