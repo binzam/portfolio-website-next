@@ -91,7 +91,7 @@ body {
   transition: transform 0.3s ease-in-out;
 }
 
-.screenshots:hover .screenshot-img {
+.card:hover .screenshot-img {
   animation: panAnimation 8s infinite alternate;
   will-change: transform, object-position;
 }

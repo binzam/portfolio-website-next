@@ -14,7 +14,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
   }, [project.description]);
 
   return (
-    <article className="max-w-150 flex flex-col gap-1 mx-auto w-full text-white h-fit">
+    <article className="card max-w-150 flex flex-col gap-1 mx-auto w-full text-white h-fit">
       <div className="screenshots gap-1.5">
         <div className="screenshot-large">
           <Image

@@ -27,10 +27,10 @@ import DreamNest from "@/assets/images/portfolio-screenshots/dreamnest-screensho
 import DreamNestSmall from "@/assets/images/portfolio-screenshots/dreamnest-screenshot-small.webp";
 import Showpify from "@/assets/images/portfolio-screenshots/showpify-screenshot.webp";
 import ShowpifySmall from "@/assets/images/portfolio-screenshots/showpify-screenshot-small.webp";
-import SkillPilot from "@/assets/images/portfolio-screenshots/skillpilot-screenshot.webp";
-import SkillPilotSmall from "@/assets/images/portfolio-screenshots/skillpilot-screenshot-small.webp";
-import Vidsum from "@/assets/images/portfolio-screenshots/vidsum-screenshot.webp";
-import VidsumSmall from "@/assets/images/portfolio-screenshots/vidsum-screenshot-small.webp";
+// import SkillPilot from "@/assets/images/portfolio-screenshots/skillpilot-screenshot.webp";
+// import SkillPilotSmall from "@/assets/images/portfolio-screenshots/skillpilot-screenshot-small.webp";
+// import Vidsum from "@/assets/images/portfolio-screenshots/vidsum-screenshot.webp";
+// import VidsumSmall from "@/assets/images/portfolio-screenshots/vidsum-screenshot-small.webp";
 import ColorStore from "@/assets/images/portfolio-screenshots/color-store-screenshot.webp";
 import ColorStoreSmall from "@/assets/images/portfolio-screenshots/color-store-screenshot.webp";
 import SisayAcademy from "@/assets/images/portfolio-screenshots/sisayacademy-screenshot.webp";
@@ -74,8 +74,7 @@ const LANDING_PAGES: Project[] = [
     imageLarge: EasyBank,
     imageSmall: EasyBankSmall,
     technologies: [HtmlIcon, CssIcon, JsIcon],
-    // liveLink: "https://easybank-landing-page-deploy.netlify.app/",
-    liveLink: null,
+    liveLink: "https://easybank.binii.dev/",
   },
 ];
 
@@ -100,40 +99,40 @@ const CONTENT_PLATFORMS: Project[] = [
   },
 ];
 
-const AI_TOOLS: Project[] = [
-  {
-    title: "SkillPilot",
-    description:
-      "An AI-powered learning platform designed to help users master any skill or topic through personalized learning roadmaps. Simply search for a skill you're interested in, and the platform generates a custom roadmap complete with modules, submodules, and detailed topics—each paired with curated learning resources such as articles, videos, and relevant websites. Users can easily track their progress, pick up right where they left off, and receive AI generated quizzes for each completed module and get quiz result. Users also get a custom AI tutor chatbot for any question about a specific topic and a chat history to revisit all chat sessions.",
-    imageLarge: SkillPilot,
-    imageSmall: SkillPilotSmall,
-    technologies: [
-      ReactIcon,
-      TsIcon,
-      TailwindIcon,
-      NodejsIcon,
-      ExpressIcon,
-      MongoIcon,
-    ],
-    liveLink: "https://skill-pilot.netlify.app/",
-  },
-  {
-    title: "VidSummary",
-    description:
-      "A platform where users can summarize youtube videos and get the full transcripts for the video by simply entering the video link(URL).",
-    imageLarge: Vidsum,
-    imageSmall: VidsumSmall,
-    technologies: [
-      ReactIcon,
-      TsIcon,
-      TailwindIcon,
-      NodejsIcon,
-      ExpressIcon,
-      MongoIcon,
-    ],
-    liveLink: "https://vidsum.netlify.app/",
-  },
-];
+// const AI_TOOLS: Project[] = [
+//   {
+//     title: "SkillPilot",
+//     description:
+//       "An AI-powered learning platform designed to help users master any skill or topic through personalized learning roadmaps. Simply search for a skill you're interested in, and the platform generates a custom roadmap complete with modules, submodules, and detailed topics—each paired with curated learning resources such as articles, videos, and relevant websites. Users can easily track their progress, pick up right where they left off, and receive AI generated quizzes for each completed module and get quiz result. Users also get a custom AI tutor chatbot for any question about a specific topic and a chat history to revisit all chat sessions.",
+//     imageLarge: SkillPilot,
+//     imageSmall: SkillPilotSmall,
+//     technologies: [
+//       ReactIcon,
+//       TsIcon,
+//       TailwindIcon,
+//       NodejsIcon,
+//       ExpressIcon,
+//       MongoIcon,
+//     ],
+//     liveLink: "https://skill-pilot.netlify.app/",
+//   },
+//   {
+//     title: "VidSummary",
+//     description:
+//       "A platform where users can summarize youtube videos and get the full transcripts for the video by simply entering the video link(URL).",
+//     imageLarge: Vidsum,
+//     imageSmall: VidsumSmall,
+//     technologies: [
+//       ReactIcon,
+//       TsIcon,
+//       TailwindIcon,
+//       NodejsIcon,
+//       ExpressIcon,
+//       MongoIcon,
+//     ],
+//     liveLink: "https://vidsum.netlify.app/",
+//   },
+// ];
 
 const ECOMMERCE: Project[] = [
   {
@@ -196,7 +195,7 @@ const TABS = [
   "Marketing Sites",
   "E-Commerce",
   "Content Platforms",
-  "AI Tools",
+  // "AI Tools",
   "Side Projects",
 ];
 
@@ -204,7 +203,7 @@ const DATA: Record<string, Project[]> = {
   "Marketing Sites": LANDING_PAGES,
   "E-Commerce": ECOMMERCE,
   "Content Platforms": CONTENT_PLATFORMS,
-  "AI Tools": AI_TOOLS,
+  // "AI Tools": AI_TOOLS,
   "Side Projects": EXTENSIONS,
 };
 const Portfolio = () => {
