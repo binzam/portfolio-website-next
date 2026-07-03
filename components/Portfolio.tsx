@@ -55,8 +55,7 @@ const LANDING_PAGES: Project[] = [
     imageLarge: Manage,
     imageSmall: ManageSmall,
     technologies: [HtmlIcon, CssIcon, JsIcon],
-    // liveLink: "https://mange-landing-page-frontend-mentor.netlify.app/",
-    liveLink: null,
+    liveLink: "https://manage.binii.dev/",
   },
   {
     title: "Bookmark",
