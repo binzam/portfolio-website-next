@@ -61,10 +61,14 @@ const AboutMe = () => {
             </svg>
           </h2>
           <p className="text-base sm:text-lg md:text-xl font-medium leading-relaxed text-pretty">
-            I&apos;m a full-stack web developer specializing in Frontend
-            Development, with 3+ years of experience building websites and
-            complex web applications. I enjoy building smooth, responsive &
-            engaging user experiences. Always learning / building.
+            Based in Addis Ababa, I&apos;m a full-stack web developer
+            specializing in modern Frontend Engineering. With 3+ years of
+            experience building high-performance websites and complex web
+            applications, I partner with businesses and teams to architect
+            responsive, interactive user interfaces. Whether you need a custom
+            website developer or a scalable web app using React, Next.js, and
+            TypeScript, I focus on delivering engaging digital experiences.
+            Always learning, always building.
           </p>
         </div>
       </div>

@@ -50,9 +50,9 @@ const Hero = () => {
           >
             Hi, I&apos;m <br /> Binyam
           </h1>
-          <p className="bebas-neue-regular text-[22px] sm:text-[28px] md:text-[35px] tracking-widest text-black">
-            a web developer.
-          </p>
+          <h2 className="bebas-neue-regular text-[22px] sm:text-[28px] md:text-[35px] tracking-widest text-black">
+            Web Developer.
+          </h2>
         </div>
       </div>
 

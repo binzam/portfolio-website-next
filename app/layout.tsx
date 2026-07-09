@@ -25,18 +25,37 @@ const bebasNeue = Bebas_Neue({
 export const metadata: Metadata = {
   metadataBase: new URL("https://binii.dev"),
   title: {
-    default: "Binyam | Frontend Web Developer",
-    template: "%s | Binyam",
+    default: "Binyam | Professional Website Developer & Frontend Engineer",
+    template: "%s | Binyam - Web Developer",
   },
   description:
-    "Portfolio of Binyam, a Frontend Web Developer specializing in React, Next.js, and modern web architectures.",
+    "Hire a professional website developer to build modern, high-performance web applications. Specializing in custom website creation, interactive UIs, and robust architectures.",
+  keywords: [
+    "Website Developer",
+    "Freelance Web Developer",
+    "Frontend Web Developer",
+    "Web Application Developer",
+    "React Developer",
+    "Next.js Expert",
+    "Interactive Web Design",
+    "Custom Website Builder",
+    "Software Localization",
+    "Addis Ababa Web Developer",
+  ],
   openGraph: {
-    title: "Binyam | Frontend Web Developer",
-    description: "Portfolio of Binyam, a Frontend Web Developer.",
+    title: "Binyam | Professional Website Developer",
+    description:
+      "Hire a professional website developer for modern, high-performance web applications.",
     url: "https://binii.dev",
     siteName: "Binyam Portfolio",
     locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Binyam | Professional Website Developer",
+    description:
+      "Hire a professional website developer for modern, high-performance web applications.",
   },
 };
 
