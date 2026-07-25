@@ -4,6 +4,7 @@ import Portfolio from "@/components/Portfolio";
 import Contact from "@/components/Contact";
 import Nav from "@/components/Nav";
 import Services from "@/components/Services";
+import BlogTeaser from "@/components/blog/BlogTeaser";
 
 export default function Home() {
   const jsonLd = {
@@ -44,6 +45,7 @@ export default function Home() {
       <AboutMe />
       <Services />
       <Portfolio />
+      <BlogTeaser />
       <Contact />
     </>
   );

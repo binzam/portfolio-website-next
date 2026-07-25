@@ -68,6 +68,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${roboto.variable} ${spaceGrotesk.variable} ${bebasNeue.variable} h-full antialiased`}
+      data-scroll-behavior="smooth"
     >
       <body className="min-h-full bg-[#e8dfd1] text-[#131132] flex flex-col">
         {children}
