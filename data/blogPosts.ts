@@ -30,7 +30,7 @@ export const blogPosts: BlogPost[] = [
     content: [
       {
         type: "paragraph",
-        text: "Here's a scenario I lived through way too many times before I fixed it. You're building a MERN app, or a PWA with all the trimmings — service worker, geolocation, maybe camera access for a QR scanner. On your laptop, at `http://localhost:5173`, it's perfect. Buttery animations, install prompt working, everything green in the console. You feel like a genius.",
+        text: "Here's a scenario I lived through way too many times before I fixed it. You're building a web app, or a PWA with all the trimmings: service worker, geolocation, maybe camera access for a QR scanner. On your laptop, at `http://localhost:5173`, it's perfect. Buttery animations, install prompt working, everything green in the console. You feel like a genius.",
       },
       {
         type: "paragraph",
@@ -43,11 +43,11 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "A bunch of powerful browser APIs — service workers, geolocation, camera and mic access — only work in what browsers call a **secure context**. A secure context is either `https://` or, as a special exception, `localhost` itself. That exception is exactly what's been hiding this problem from you.",
+        text: "A bunch of powerful browser APIs (service workers, geolocation, camera and mic access) only work in what browsers call a **secure context**. A secure context is either `https://` or, as a special exception, `localhost` itself. That exception is exactly what's been hiding this problem from you.",
       },
       {
         type: "paragraph",
-        text: "On your laptop, `localhost` gets a free pass. The instant your phone hits your laptop's IP address instead — which it has to, because phones don't know what your `localhost` is — you're on plain `http://`, over a network, with none of the secure-context exceptions. So the exact features that matter most for a PWA are the first ones to disappear, and they disappear silently. No error banner. No helpful message. Just missing behavior, which is somehow worse.",
+        text: "On your laptop, `localhost` gets a free pass. The instant your phone hits your laptop's IP address instead (which it has to, because phones don't know what your `localhost` is), you're on plain `http://`, over a network, with none of the secure-context exceptions. So the exact features that matter most for a PWA are the first ones to disappear, and they disappear silently. No error banner. No helpful message. Just missing behavior, which is somehow worse.",
       },
       {
         type: "callout",
@@ -69,7 +69,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "None of these were actually solving the problem — they were all just working around not having HTTPS locally. Here's what I actually did instead, running Vite + React on Linux Mint, testing against an Android phone on the same Wi-Fi.",
+        text: "None of these were actually solving the problem: they were all just working around not having HTTPS locally. Here's what I actually did instead, running Vite + React on a Linux machine, testing against an Android phone on the same Wi-Fi.",
       },
       {
         type: "heading",
@@ -87,13 +87,13 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "You'll probably get more than one address back, something like `192.168.124.85 172.17.0.1 172.18.0.1`. If you've got Docker installed, `hostname -I` hands you a whole suspicious lineup of IPs you didn't ask for:",
+        text: "You'll probably get more than one address back, something like `192.168.124.85 172.17.0.1 172.18.0.1`, especially if Docker is installed:",
       },
       {
         type: "list",
         items: [
           "`192.168.x.x` → your actual local network IP. **Use this one.**",
-          "`172.x.x.x` → Docker's internal network, minding its own business. Ignore it — your phone can't see it and never will.",
+          "`172.x.x.x` → Docker's internal network, minding its own business. Ignore it: your phone can't see it and never will.",
         ],
       },
       {
@@ -107,7 +107,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "By default, Vite only exposes your dev server to `localhost` — your phone, sitting on the same Wi-Fi, still can't reach it. Fix that first, before worrying about certificates at all:",
+        text: "By default, Vite only exposes your dev server to `localhost`; your phone, sitting on the same Wi-Fi, still can't reach it. Fix that first, before worrying about certificates at all:",
       },
       {
         type: "code",
@@ -126,7 +126,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: '`mkcert` is the tool that fixes this properly. Instead of a self-signed certificate that every browser screams at you about, mkcert creates a local Certificate Authority (CA) and installs it into your machine\'s trust store. Any certificate that CA issues afterward is trusted automatically — no "Your connection is not private" wall, no clicking through red warnings.',
+        text: '`mkcert` is the tool that fixes this properly. Instead of a self-signed certificate that every browser screams at you about, mkcert creates a local Certificate Authority (CA) and installs it into your machine\'s trust store. Any certificate that CA issues afterward is trusted automatically, no "Your connection is not private" wall, no clicking through red warnings.',
       },
       {
         type: "code",
@@ -136,7 +136,7 @@ export const blogPosts: BlogPost[] = [
       {
         type: "callout",
         variant: "note",
-        text: "If `mkcert` isn't in your distro's package manager, grab the binary directly from its GitHub releases page instead — same tool, just a different install path.",
+        text: "If `mkcert` isn't in your distro's package manager, grab the binary directly from its GitHub releases page instead, same tool, just a different install path.",
       },
       {
         type: "heading",
@@ -164,7 +164,7 @@ export const blogPosts: BlogPost[] = [
       {
         type: "callout",
         variant: "warning",
-        text: "`rootCA.pem` is the public certificate other devices need to trust — that's the one you'll copy to your phone. `rootCA-key.pem` is the **private key** for your CA. Never move that one anywhere. If it leaks, someone could mint certificates your machine trusts.",
+        text: "`rootCA.pem` is the public certificate other devices need to trust: that's the one you'll copy to your phone. `rootCA-key.pem` is the **private key** for your CA. Never move that one anywhere. If it leaks, someone could mint certificates your machine trusts.",
       },
       {
         type: "heading",
@@ -173,7 +173,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: "The doc says \"copy rootCA.pem to your phone\" like it's obvious, but there's no AirDrop for Android. The fastest way I found: spin up a one-line file server in that folder and download the cert straight over Wi-Fi — arguably the least secure step in this entire quest for more security, but it works and it's quick:",
+        text: "The doc says to \"copy rootCA.pem to your phone\" like it's obvious, but doesn't say how. Easiest way: send the file to yourself over WhatsApp or Telegram. If you'd rather skip an app, spin up a one-line file server instead and grab the cert over Wi-Fi:",
       },
       {
         type: "code",
@@ -197,7 +197,7 @@ export const blogPosts: BlogPost[] = [
       {
         type: "callout",
         variant: "tip",
-        text: "The exact wording and depth of this menu shifts depending on your phone's manufacturer — Samsung especially enjoys hiding it one folder deeper than everyone else. After installing, Android shows a permanent notification that a certificate authority is installed on the device. That's expected — you did just tell your phone to trust an authority you invented in your terminal five minutes ago.",
+        text: "The exact wording and depth of this menu shifts depending on your phone's manufacturer. Samsung especially enjoys hiding it one folder deeper than everyone else. After installing, Android shows a permanent notification that a certificate authority is installed on the device. That's expected: you did just tell your phone to trust an authority you invented in your terminal five minutes ago.",
       },
       {
         type: "paragraph",
@@ -238,7 +238,7 @@ export const blogPosts: BlogPost[] = [
       {
         type: "callout",
         variant: "tip",
-        text: "If your Express/Node API needs HTTPS too so your MERN app is secure end-to-end, the same certificate files work there — swap `app.listen(...)` for `https.createServer({ key, cert }, app).listen(...)` using the exact same `key`/`cert` pair.",
+        text: "If your backend API needs HTTPS too so your app is secure end-to-end, the same certificate files work there: swap `app.listen(...)` for `https.createServer({ key, cert }, app).listen(...)` using the exact same `key`/`cert` pair.",
       },
       {
         type: "heading",
@@ -269,24 +269,15 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
-        text: 'Padlock icon, no warnings, secure context achieved. The service worker registers. "Add to Home Screen" shows up unprompted. Location and camera permission dialogs actually fire. Everything behaves exactly like it will in production — hours before you\'ve deployed anything, from your own couch. The whole setup ends up looking like this:',
+        text: 'Padlock icon, no warnings, secure context achieved. The service worker registers. "Add to Home Screen" shows up unprompted. Location and camera permission dialogs actually fire. Everything behaves exactly like it will in production, hours before you\'ve deployed anything, from your own couch. The whole setup ends up looking like this:',
       },
       {
         type: "code",
-        code: "Linux Mint PC\n      │\n      │ HTTPS\n      ▼\nVite React App\n192.168.124.85:5173\n      │\n      ▼\nPhone Browser",
+        code: "Linux Machine\n      │\n      │ HTTPS\n      ▼\nVite React App\n192.168.124.85:5173\n      │\n      ▼\nPhone Browser",
       },
       {
         type: "quote",
         text: "You're not testing a simulation of the real experience anymore. You're testing the real experience, just early.",
-      },
-      {
-        type: "heading",
-        text: "If you're reading this on an iPhone",
-        level: 2,
-      },
-      {
-        type: "paragraph",
-        text: "Good luck. I mean that with love — I don't own an iPhone, so I haven't lived through this personally, but iOS makes you install the cert as a configuration profile through Safari, then go dig into **Settings → General → About → Certificate Trust Settings** to manually flip on full trust for it. It's an extra layer Android doesn't bother with. Godspeed, and may your Settings app be merciful.",
       },
       {
         type: "heading",
@@ -296,14 +287,14 @@ export const blogPosts: BlogPost[] = [
       {
         type: "list",
         items: [
-          "If you switch Wi-Fi networks, your laptop's local IP changes, so you'll need to regenerate the leaf certificate for the new IP (no need to redo `mkcert -install` or reinstall anything on your phone — the CA stays valid).",
-          "This same setup works for literally any local project, not just one MERN app — set it up once per machine and reuse it everywhere.",
+          "If you switch Wi-Fi networks, your laptop's local IP changes, so you'll need to regenerate the leaf certificate for the new IP (no need to redo `mkcert -install` or reinstall anything on your phone; the CA stays valid).",
+          "This same setup works for literally any local project, not just one app; set it up once per machine and reuse it everywhere.",
           "It costs you about 20 minutes, once, in exchange for never again being surprised by a feature that only breaks on real devices.",
         ],
       },
       {
         type: "paragraph",
-        text: "That's it. No tunnels, no staging deploys just to check a button, no more finding out your PWA doesn't quite work the way you thought — after you've already told a client it does.",
+        text: "That's it. No tunnels, no staging deploys just to check a button, no more finding out your PWA doesn't quite work the way you thought after you've already told a client it does.",
       },
     ],
   },
