@@ -36,6 +36,7 @@ import ColorStoreSmall from "@/assets/images/portfolio-screenshots/color-store-s
 import SisayAcademy from "@/assets/images/portfolio-screenshots/sisayacademy-screenshot.webp";
 import SisayAcademySmall from "@/assets/images/portfolio-screenshots/sisayacademy-screenshot-small.webp";
 import { StaticImageData } from "next/image";
+import PortfolioCursor from "./PortfolioCursor";
 
 export interface Project {
   title: string;
@@ -205,8 +206,10 @@ const DATA: Record<string, Project[]> = {
   // "AI Tools": AI_TOOLS,
   "Side Projects": EXTENSIONS,
 };
+
 const Portfolio = () => {
   const [activeTab, setActiveTab] = useState("Marketing Sites");
+  const [isHovering, setIsHovering] = useState(false);
   const layoutTransition = {
     type: "spring",
     stiffness: 50,
@@ -216,8 +219,13 @@ const Portfolio = () => {
   return (
     <section
       id="portfolio"
-      className="relative bg-[#131132] py-16 sm:py-24 md:py-35 flex items-center justify-center flex-col min-h-screen overflow-hidden"
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+      className={`relative bg-[#131132] py-16 sm:py-24 md:py-35 flex items-center justify-center flex-col min-h-screen overflow-hidden ${
+        isHovering ? "cursor-none **:cursor-none!" : ""
+      }`}
     >
+      <PortfolioCursor isVisible={isHovering} />
       <h1 className="text-3xl sm:text-4xl md:text-5xl text-center text-[#e8dfd1] bebas-neue-regular mb-6 px-4">
         Some of my Works
       </h1>
