@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Roboto, Space_Grotesk, Bebas_Neue } from "next/font/google";
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/next";
 
 const roboto = Roboto({
   weight: ["100", "300", "400", "500", "700", "900"],
@@ -73,7 +72,6 @@ export default function RootLayout({
     >
       <body className="min-h-full bg-[#e8dfd1] text-[#131132] flex flex-col">
         {children}
-        <Analytics />
       </body>
     </html>
   );
