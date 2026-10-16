@@ -10,7 +10,10 @@ export interface BlogPost {
   slug: string;
   title: string;
   excerpt: string;
+  seoTitle?: string;
+  seoDescription?: string;
   date: string;
+  updatedAt?: string;
   readTime: string;
   tags: string[];
   emoji: string;
@@ -23,6 +26,9 @@ export const blogPosts: BlogPost[] = [
     title: "Localhost Lies: Testing Your PWA the Way Your Users Actually Will",
     excerpt:
       "You built a slick PWA. It's flawless on your laptop. Then you open it on your phone and half the features quietly vanish. The fix? fake certificates, a homemade Certificate Authority, and 20 minutes of your life.",
+    seoTitle: "Test a PWA on Android with Local HTTPS (Vite + mkcert)",
+    seoDescription:
+      "Your PWA works on localhost but breaks on your phone. Set up trusted local HTTPS with mkcert and Vite to test it on Android.",
     date: "2026-07-20",
     readTime: "8 min read",
     tags: ["Local Dev", "HTTPS", "PWA", "Vite", "DX"],
@@ -308,4 +314,8 @@ export function getAllPosts(): BlogPost[] {
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
   return blogPosts.find((post) => post.slug === slug);
+}
+
+export function getLastModified(post: BlogPost): string {
+  return post.updatedAt ?? post.date;
 }

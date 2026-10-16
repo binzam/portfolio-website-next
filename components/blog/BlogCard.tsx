@@ -1,11 +1,20 @@
 import Link from "next/link";
 import type { BlogPost } from "@/data/blogPosts";
 
-const BlogCard = ({ post }: { post: BlogPost }) => {
+interface BlogCardProps {
+  post: BlogPost;
+  headingLevel?: "h2" | "h3";
+}
+
+const BlogCard = ({ post, headingLevel = "h3" }: BlogCardProps) => {
+  const Heading = headingLevel;
+  const href = `/blogs/${post.slug}`;
+
   const formattedDate = new Date(post.date).toLocaleDateString("en-US", {
     month: "short",
     day: "numeric",
     year: "numeric",
+    timeZone: "UTC",
   });
 
   return (
@@ -16,14 +25,16 @@ const BlogCard = ({ post }: { post: BlogPost }) => {
 
       <div className="bg-[#e8dfd1] border-t-2 border-t-white text-[#131132] p-3.5 sm:p-4 rounded-b-sm flex flex-col w-full overflow-hidden gap-3">
         <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#131132]/60 bebas-neue-regular tracking-widest">
-          <span>{formattedDate}</span>
+          <time dateTime={post.date}>{formattedDate}</time>
           <span aria-hidden="true">•</span>
           <span>{post.readTime}</span>
         </div>
 
-        <h3 className="text-lg sm:text-xl font-bold leading-tight space-grotesk-font">
-          {post.title}
-        </h3>
+        <Heading className="text-lg sm:text-xl font-bold leading-tight space-grotesk-font">
+          <Link href={href} className="hover:underline underline-offset-4">
+            {post.title}
+          </Link>
+        </Heading>
 
         <p className="py-2 pl-3 border-l-2 border-l-[#e59832] bg-white rounded-sm text-xs sm:text-sm leading-relaxed">
           {post.excerpt}
@@ -42,7 +53,8 @@ const BlogCard = ({ post }: { post: BlogPost }) => {
           </div>
 
           <Link
-            href={`/blogs/${post.slug}`}
+            href={href}
+            aria-label={`Read post: ${post.title}`}
             className="bg-[#e59832] px-3.5 py-1.5 rounded-xs text-white text-xs sm:text-sm font-extrabold shadow-md hover:bg-[#d48624] transition cursor-pointer flex items-center gap-1.5 ml-auto sm:ml-0"
           >
             READ POST
@@ -53,6 +65,7 @@ const BlogCard = ({ post }: { post: BlogPost }) => {
               strokeWidth="2.5"
               stroke="currentColor"
               className="size-3.5 sm:size-4 shrink-0"
+              aria-hidden="true"
             >
               <path
                 strokeLinecap="round"

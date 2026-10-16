@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import type { Graph } from "schema-dts";
 import Hero from "@/components/Hero";
 import AboutMe from "@/components/AboutMe";
 import Portfolio from "@/components/Portfolio";
@@ -5,19 +7,44 @@ import Contact from "@/components/Contact";
 import Nav from "@/components/Nav";
 import Services from "@/components/Services";
 import BlogTeaser from "@/components/blog/BlogTeaser";
+import { JsonLd } from "@/components/JsonLd";
+import {
+  AUTHOR_NAME,
+  PERSON_ID,
+  SITE_NAME,
+  SITE_URL,
+  WEBSITE_ID,
+} from "@/lib/site";
 
-export default function Home() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    mainEntity: {
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
+
+const jsonLd: Graph = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": WEBSITE_ID,
+      url: SITE_URL,
+      name: SITE_NAME,
+      inLanguage: "en",
+      publisher: { "@id": PERSON_ID },
+    },
+    {
       "@type": "Person",
-      name: "Binyam",
-      jobTitle: "Professional Website Developer & Frontend Engineer",
-      url: "https://binii.dev",
-      image: "https://binii.dev/profile-square.jpg",
+      "@id": PERSON_ID,
+      name: AUTHOR_NAME,
+      jobTitle: "Frontend Engineer",
+      url: SITE_URL,
+      image: `${SITE_URL}/profile-square.jpg`,
       description:
         "Professional website developer offering custom web applications, high-performance sites, and interactive web experiences.",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Addis Ababa",
+        addressCountry: "ET",
+      },
       knowsAbout: [
         "Web Development",
         "Frontend Engineering",
@@ -33,20 +60,29 @@ export default function Home() {
         "https://www.linkedin.com/in/binyam-techan-280017279",
       ],
     },
-  };
+    {
+      "@type": "ProfilePage",
+      "@id": `${SITE_URL}/#profile`,
+      url: SITE_URL,
+      isPartOf: { "@id": WEBSITE_ID },
+      mainEntity: { "@id": PERSON_ID },
+    },
+  ],
+};
+
+export default function Home() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
       <Nav />
-      <Hero />
-      <AboutMe />
-      <Services />
-      <Portfolio />
-      <BlogTeaser />
-      <Contact />
+      <main>
+        <Hero />
+        <AboutMe />
+        <Services />
+        <Portfolio />
+        <BlogTeaser />
+        <Contact />
+      </main>
     </>
   );
 }

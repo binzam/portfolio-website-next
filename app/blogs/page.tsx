@@ -2,11 +2,31 @@ import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import BlogCard from "@/components/blog/BlogCard";
 import { getAllPosts } from "@/data/blogPosts";
+import { OG_IMAGE, SITE_NAME } from "@/lib/site";
+
+const TITLE = "Blog";
+const DESCRIPTION =
+  "Write-ups on the real problems I run into building web apps. Not tutorials, just what actually happened and how I solved it.";
 
 export const metadata: Metadata = {
-  title: "Blog | Binyam",
-  description:
-    "Write-ups on the real problems I run into building web apps. Not tutorials, just what actually happened and how I solved it.",
+  title: TITLE, 
+  description: DESCRIPTION,
+  alternates: { canonical: "/blogs" },
+  openGraph: {
+    type: "website",
+    title: `${TITLE} | Binyam`,
+    description: DESCRIPTION,
+    url: "/blogs",
+    siteName: SITE_NAME,
+    locale: "en_US",
+    images: [{ url: OG_IMAGE }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${TITLE} | Binyam`,
+    description: DESCRIPTION,
+    images: [OG_IMAGE],
+  },
 };
 
 const BlogsPage = () => {
@@ -21,17 +41,18 @@ const BlogsPage = () => {
             The Blog
           </h1>
           <p className="text-base sm:text-lg text-[#e8dfd1] max-w-2xl text-center font-medium mb-12 sm:mb-16 text-pretty">
-           Just notes I write up whenever I hit a problem worth sharing the fix for.
+            Just notes I write up whenever I hit a problem worth sharing the fix
+            for.
           </p>
 
           {posts.length === 0 ? (
-            <p className="text-[#131132]/60 text-center">
+            <p className="text-[#e8dfd1]/60 text-center">
               Nothing posted yet. Check back soon.
             </p>
           ) : (
             <div className="w-full grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6">
               {posts.map((post) => (
-                <BlogCard key={post.slug} post={post} />
+                <BlogCard key={post.slug} post={post} headingLevel="h2" />
               ))}
             </div>
           )}

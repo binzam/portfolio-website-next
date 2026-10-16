@@ -17,7 +17,7 @@ const Contact = () => {
             stroke="currentColor"
             fill="currentColor"
             strokeWidth="0"
-            role="img"
+            aria-hidden="true"
             viewBox="0 0 24 24"
             className="size-10 sm:size-16 md:size-20"
             xmlns="http://www.w3.org/2000/svg"
@@ -37,6 +37,7 @@ const Contact = () => {
             className="size-10 sm:size-16 md:size-20"
             viewBox="0 0 360 362"
             fill="none"
+            aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
@@ -59,6 +60,7 @@ const Contact = () => {
             stroke="currentColor"
             fill="currentColor"
             strokeWidth="0"
+            aria-hidden="true"
             viewBox="0 0 512 512"
             className="size-10 sm:size-16 md:size-20"
             xmlns="http://www.w3.org/2000/svg"
@@ -79,6 +81,7 @@ const Contact = () => {
             fill="currentColor"
             strokeWidth="0"
             viewBox="0 0 496 512"
+            aria-hidden="true"
             className="size-10 sm:size-16 md:size-20"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -98,6 +101,7 @@ const Contact = () => {
             fill="currentColor"
             strokeWidth="0"
             viewBox="0 0 448 512"
+            aria-hidden="true"
             className="size-10 sm:size-16 md:size-20"
             xmlns="http://www.w3.org/2000/svg"
           >
