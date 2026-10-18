@@ -97,8 +97,18 @@ const BlogPostPage = async ({ params }: Props) => {
         keywords: post.tags,
         inLanguage: "en",
         isPartOf: { "@id": WEBSITE_ID },
-        author: { "@id": PERSON_ID },
-        publisher: { "@id": PERSON_ID },
+        author: {
+          "@type": "Person",
+          "@id": PERSON_ID,
+          name: AUTHOR_NAME,
+          url: SITE_URL,
+        },
+        publisher: {
+          "@type": "Person",
+          "@id": PERSON_ID,
+          name: AUTHOR_NAME,
+          url: SITE_URL,
+        },
       },
       {
         "@type": "BreadcrumbList",
