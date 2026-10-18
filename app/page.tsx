@@ -39,7 +39,7 @@ const jsonLd: Graph = {
       url: SITE_URL,
       image: `${SITE_URL}/profile-square.jpg`,
       description:
-        "Professional website developer offering custom web applications, high-performance sites, and interactive web experiences.",
+        "Binyam Techan is a frontend engineer specializing in React, TypeScript, and modern web applications. Explore his projects, technical articles, and development experience.",
       address: {
         "@type": "PostalAddress",
         addressLocality: "Addis Ababa",

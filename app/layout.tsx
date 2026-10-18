@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Roboto, Space_Grotesk, Bebas_Neue } from "next/font/google";
-import { AUTHOR_NAME, SITE_NAME, SITE_URL } from "@/lib/site";
+import { AUTHOR_NAME, OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const roboto = Roboto({
@@ -25,12 +25,12 @@ const bebasNeue = Bebas_Neue({
 });
 
 const DESCRIPTION =
-  "Hire a professional website developer to build modern, high-performance web applications. Specializing in custom website creation, interactive UIs, and robust architectures.";
+  "Binyam Techan is a frontend engineer specializing in React, TypeScript, and modern web applications. Explore his projects, technical articles, and development experience.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Binyam | Professional Website Developer & Frontend Engineer",
+    default: "Binyam | Frontend Engineer",
     template: "%s | Binyam",
   },
   description: DESCRIPTION,
@@ -49,19 +49,19 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Binyam | Professional Website Developer",
-    description:
-      "Hire a professional website developer for modern, high-performance web applications.",
+    title: "Binyam Techan | Frontend Engineer",
+    description: DESCRIPTION,
     url: SITE_URL,
     siteName: SITE_NAME,
     locale: "en_US",
     type: "website",
+    images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Binyam | Professional Website Developer",
-    description:
-      "Hire a professional website developer for modern, high-performance web applications.",
+    title: "Binyam Techan | Frontend Engineer",
+    description: DESCRIPTION,
+    images: [OG_IMAGE],
   },
 };
 
