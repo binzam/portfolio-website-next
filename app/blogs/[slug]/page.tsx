@@ -5,10 +5,17 @@ import type { Graph } from "schema-dts";
 import Nav from "@/components/Nav";
 import BlogContent from "@/components/blog/BlogContent";
 import { JsonLd } from "@/components/JsonLd";
-import { blogPosts, getLastModified, getPostBySlug } from "@/data/blogPosts";
+import {
+  blogPosts,
+  getLastModified,
+  getPostBySlug,
+  type BlogPost,
+} from "@/data/blogPosts";
 import {
   AUTHOR_NAME,
   OG_IMAGE,
+  OG_IMAGE_ALT,
+  OG_IMAGE_SIZE,
   PERSON_ID,
   postPath,
   SITE_NAME,
@@ -34,6 +41,20 @@ const formatDate = (iso: string): string =>
     timeZone: "UTC",
   });
 
+interface PostImage {
+  /** Path as served from /public, e.g. /og/my-post.png */
+  path: string;
+  alt: string;
+  /** Known only for per-post images, which are always 1200x630. */
+  size: { width: number; height: number } | null;
+}
+
+/** The post's own share image, or the site-wide one if it has none. */
+const getPostImage = (post: BlogPost): PostImage =>
+  post.ogImage
+    ? { path: post.ogImage.src, alt: post.ogImage.alt, size: OG_IMAGE_SIZE }
+    : { path: OG_IMAGE, alt: OG_IMAGE_ALT, size: null };
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
@@ -42,6 +63,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const path = postPath(post.slug);
   const description = post.seoDescription ?? post.excerpt;
+  const image = getPostImage(post);
 
   return {
     title: post.seoTitle ?? post.title,
@@ -58,13 +80,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       modifiedTime: new Date(getLastModified(post)).toISOString(),
       authors: [AUTHOR_NAME],
       tags: post.tags,
-      images: [{ url: OG_IMAGE }],
+      images: [{ url: image.path, alt: image.alt, ...(image.size ?? {}) }],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description,
-      images: [OG_IMAGE],
+      images: [{ url: image.path, alt: image.alt }],
     },
   };
 }
@@ -76,6 +98,7 @@ const BlogPostPage = async ({ params }: Props) => {
   if (!post) notFound();
 
   const url = `${SITE_URL}${postPath(post.slug)}`;
+  const image = getPostImage(post);
   const publishedIso = new Date(post.date).toISOString();
   const modifiedIso = new Date(getLastModified(post)).toISOString();
   const showUpdated =
@@ -93,7 +116,7 @@ const BlogPostPage = async ({ params }: Props) => {
         mainEntityOfPage: { "@type": "WebPage", "@id": url },
         datePublished: publishedIso,
         dateModified: modifiedIso,
-        image: `${SITE_URL}${OG_IMAGE}`,
+        image: `${SITE_URL}${image.path}`,
         keywords: post.tags,
         inLanguage: "en",
         isPartOf: { "@id": WEBSITE_ID },
